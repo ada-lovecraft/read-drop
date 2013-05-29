@@ -1,0 +1,6 @@
+extends layout
+
+block content
+	h2= post.value.title
+	h3= post.value.byline
+	p!= md(post.value.body)

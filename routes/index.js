@@ -4,7 +4,13 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'readdrop' });
-  var bucket = app.get('bucket');
-  console.log(bucket);
+	var couch = app.get('bucket');
+  	couch.view('dev_posts', 'by_created', { descending: true, limit: 10}, function(err,view) {
+     	if(err) 
+     		throw err;
+	else {
+        console.log(view);
+		res.render('index', { title: 'readdrop', posts: view });
+      }
+    })
 };

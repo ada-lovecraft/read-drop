@@ -1,23 +1,35 @@
-post-slug 
+hello-world
 {
-	doctype: 'post',
-	title: 'Post Slug',
-	slug: 'post-slug',
-	versions: [
-		0: {
-			filename: 'post-slug.00'
-		},
-		1: {
-			filename: 'post-slug.01'
-		}
-	],
-	author: 'John Caston',
-	created: '5-29-2013 00:08',
-	tags: [
-		"featured",
-		"games",
-		"politics"
-	]
-	
+  "doctype": "post",
+  "title": "Hello, World!",
+  "slug": "hello-world",
+  "versions": [
+          {
+          	"filename": "hello-world.md",
+ 	        "timestamp": "5-29-2013 01:45"
+          },
+          {
+          	"filename": "hello-world.01",
+            	"timestamp": "5-29-2013 07:45"
+          }
+  ],
+  "byline": "First post, omg",
+  "author": "Jeremy Dowell",
+  "created": "5-29-2013 00:08",
+  "tags": [
+          "featured",
+          "games",
+          "politics"
+  ]	
+}
+
+jcaston
+{
+  "doctype": "user",
+  "username": "jcaston",
+  "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+  "firstname": "John",
+  "lastname": "Caston",
+  "twitter": "aratheos"
 }
 

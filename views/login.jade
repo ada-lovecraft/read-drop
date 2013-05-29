@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	p this is the login screen
+	form(id="login", method="POST", action="/login")
+		input(type="text",name="username", placeholder="username")
+		input(type="password",name="password", placeholder="password")
+		input(type="submit", value="login")

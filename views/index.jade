@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome to #{title}
+	h2 Posts
+		each post in posts
+			h3
+				a(href="/#{post.value.slug}")= post.value.title
+			h4= post.value.byline
