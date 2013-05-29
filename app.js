@@ -7,9 +7,11 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , couchbase = require('couchbase')
 
-var app = express();
+
+exports.app = app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -23,6 +25,27 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+var couchConfig = {
+    "debug" : false,
+    "user" : process.env.COUCHBASE_USER,
+    "password" : process.env.COUCHBASE_PASS,
+    "hosts" : [ "localhost:8091" ],
+    "bucket" : "default"
+}
+
+
+couchbase.connect(couchConfig, function (err, bucket) {
+	if(err)  {
+		console.log('connection error');
+		throw err;
+	}
+	else {
+		app.set('bucket', bucket);
+		couch = bucket;
+
+	}
+});
 
 // development only
 if ('development' == app.get('env')) {

@@ -1,0 +1,23 @@
+post-slug 
+{
+	doctype: 'post',
+	title: 'Post Slug',
+	slug: 'post-slug',
+	versions: [
+		0: {
+			filename: 'post-slug.00'
+		},
+		1: {
+			filename: 'post-slug.01'
+		}
+	],
+	author: 'John Caston',
+	created: '5-29-2013 00:08',
+	tags: [
+		"featured",
+		"games",
+		"politics"
+	]
+	
+}
+
