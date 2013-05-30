@@ -28,7 +28,7 @@ var postObjectTemplate = {
 exports.app = app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.READDROP_PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('posts', __dirname +'/posts/');
 app.set('media', __dirname +'/public/media/');
