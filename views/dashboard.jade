@@ -1,8 +1,15 @@
 extends layout
 
+append styles
+	link(rel='stylesheet', href='/stylesheets/dropzone.css')
+
+append scripts
+	script(type="text/javascript", src="js/dropzone.js")
+	script(type="text/javascript", src="js/dashboard.js")
+
 block content
 	p this is the dashboard
-	div#admin
+	div#admin.hidden
 		div#users
 			h2 users
 		div#posts
@@ -10,4 +17,5 @@ block content
 		div#settings
 			h2 settings
 	div#upload
-		p upload a new file
+		h2 upload a post
+		div#dropTarget.dropzone

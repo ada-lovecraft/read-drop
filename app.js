@@ -13,14 +13,27 @@ var express = require('express')
   , markdown = require( "markdown" ).markdown;
 
 
+var postObjectTemplate = {
+  doctype: "post",
+  title: "",
+  slug: "",
+  versions: [],
+  byline: "",
+  author: "",
+  created: "",
+  tags: [] 
+}
+
 
 exports.app = app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('posts', __dirname +'/posts');
+app.set('posts', __dirname +'/posts/');
+app.set('media', __dirname +'/public/media/');
 app.set('view engine', 'jade');
+app.set('postObjectTemplate',postObjectTemplate);
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -67,6 +80,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/dashboard', admin.dashboard);
 app.post('/login', admin.login);
+app.post('/upload', admin.upload);
 app.get('/:slug', posts.load);
 
 

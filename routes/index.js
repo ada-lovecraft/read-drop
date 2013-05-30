@@ -5,7 +5,7 @@
 
 exports.index = function(req, res){
 	var couch = app.get('bucket');
-  	couch.view('dev_posts', 'by_created', { descending: true, limit: 10}, function(err,view) {
+  	couch.view('dev_posts', 'by_created', {limit: 10}, function(err,view) {
      	if(err) 
      		throw err;
 	else {

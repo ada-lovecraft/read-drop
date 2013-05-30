@@ -9,7 +9,10 @@ exports.load = function(req, res){
      		throw err;
 	else {
 		var post = view[0];
-		post.value.body = fs.readFileSync(app.get('posts') + '/' + post.value.latest.filename, {encoding: 'utf8'});
+		var content = fs.readFileSync(app.get('posts') + '/' + post.value.latest.filename, {encoding: 'utf8'});
+		var lines = content.split('\n');
+		var postBody = lines.slice(2).join('\n');
+		post.value.body = postBody;
 		res.render('post', { title: 'readdrop', post: post });
       }
     })
